@@ -1,7 +1,8 @@
 fileFormatVersion: 2
 guid: bd1989b4e42a0454097f657dfb368bd8
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: char_enemy_alienSlug-dead
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -32,7 +33,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -49,6 +50,14 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
     maxTextureSize: 1024
     textureFormat: -1
     textureCompression: 1
