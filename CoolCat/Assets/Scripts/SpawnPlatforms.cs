@@ -4,7 +4,7 @@ using System.Collections;
 public class SpawnPlatforms : MonoBehaviour
 {
 
-    public int maxPlatforms = 20;
+    public int maxPlatforms = 100;
     public GameObject platform;
     public float horizontalMin = 7.5f;
     public float horizontalMax = 14f;
