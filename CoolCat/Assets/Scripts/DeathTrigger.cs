@@ -3,6 +3,7 @@ using System.Collections;
 
 public class DeathTrigger : MonoBehaviour
 {
+    public static float normalTime = 1f;
 
     // Use this for initialization
     void Start()
@@ -19,6 +20,15 @@ public class DeathTrigger : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
+        {
+
+
+            Time.timeScale = normalTime;
             Application.LoadLevel(Application.loadedLevel);
+
+        }
+
     }
+
 }
+
