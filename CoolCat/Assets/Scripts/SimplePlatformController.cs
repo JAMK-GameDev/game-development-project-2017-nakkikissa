@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SimplePlatformController : MonoBehaviour {
 
-    [HideInInspector] public bool facingRight = true;
-    [HideInInspector] public bool jump = false;
+    private bool facingRight = true;
+    private bool jump = false;
     public float moveForce = 365f;
     public float maxSpeed = 5f;
     public float jumpForce = 1000f;
