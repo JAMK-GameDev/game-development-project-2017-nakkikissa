@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class EnemyGun : MonoBehaviour {
     public GameObject EnemyBullet; // enemybullet prefab
-	// Use this for initialization
+
 	void Start () {
         Invoke("FireEnemyBullet", 1f);
 	}
 	
-	// Update is called once per frame
 	void Update () {
-		
-	}
+    }
     
     void FireEnemyBullet() {
         GameObject mouse = GameObject.Find("hero");

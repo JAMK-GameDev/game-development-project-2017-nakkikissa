@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23376883681376882}
   - component: {fileID: 58653688276652926}
   - component: {fileID: 114151453148190838}
+  - component: {fileID: 114370437404964428}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -73,6 +74,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33095240005457508
 MeshFilter:
@@ -92,6 +94,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
@@ -104,5 +107,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e14bc330d7b2e774ba36d205ec45aa4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114370437404964428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542515909271740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 219c40fe38a04fa45bd6cad1507701a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

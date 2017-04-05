@@ -6,7 +6,7 @@ public class EnemyBulletController : MonoBehaviour {
 
     float speed; 
     Vector2 _direction; // The direction of the bullet
-    bool isReady; //to know when the bullet direction is set
+    bool isReady = false; //to know when the bullet direction is set
 
     //set default values in awake function
     void Awake() {
