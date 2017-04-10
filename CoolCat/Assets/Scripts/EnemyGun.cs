@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class EnemyGun : MonoBehaviour {
     public GameObject EnemyBullet; // enemybullet prefab
-
-	void Start () {
-        Invoke("FireEnemyBullet", 1f);
-	}
+    public float fireRate = 1F;
+    private float nextFire = 0.0F;
+    void Start () {
+       
+    }
 	
 	void Update () {
+        if (Time.time > nextFire)
+        {     
+            Invoke("FireEnemyBullet", 1f);
+            nextFire = Time.time + fireRate;
+        }
     }
-    
+
+
     void FireEnemyBullet() {
         GameObject mouse = GameObject.Find("hero");
         if(mouse != null) {

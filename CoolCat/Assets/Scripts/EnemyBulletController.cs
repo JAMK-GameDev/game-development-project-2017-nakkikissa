@@ -10,7 +10,7 @@ public class EnemyBulletController : MonoBehaviour {
 
     //set default values in awake function
     void Awake() {
-        speed = 5f;
+        speed = 7f;
         isReady = false;
     }
 	// Use this for initialization
@@ -34,10 +34,11 @@ public class EnemyBulletController : MonoBehaviour {
             //bottom-left & top-right 
             Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
             Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
-            //if bullet goes outside the screen -> destroy
+            //if bullet goes outside the screen -> destroy      
             if ((transform.position.x < min.x) || (transform.position.x > max.x) ||
               (transform.position.y < min.y) || (transform.position.y > max.y)) {
                 Destroy(gameObject);
+
             }
         }
     }
