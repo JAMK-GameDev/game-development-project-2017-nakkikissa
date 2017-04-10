@@ -21,9 +21,16 @@ public class EnemyBulletController : MonoBehaviour {
         _direction = direction.normalized; // to get an unit vector
         isReady = true; 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy( gameObject );
+        }
+    }
+    // Update is called once per frame
+    void Update () {
         if (isReady == true) {
             //get bullet current position
             Vector2 position = transform.position;
@@ -42,4 +49,5 @@ public class EnemyBulletController : MonoBehaviour {
             }
         }
     }
+
 }

@@ -10,6 +10,7 @@ public class SimplePlatformController : MonoBehaviour {
     public float maxSpeed = 10f;
     public float jumpForce = 1000f;
     public Transform groundCheck;
+    public int hp = 100;
 
 
     private bool grounded = false;
@@ -66,4 +67,13 @@ public class SimplePlatformController : MonoBehaviour {
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ShootedEnemyBullet")
+        {
+            hp = hp - 5;
+        }
+    }
+
 }
