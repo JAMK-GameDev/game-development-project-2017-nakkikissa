@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SimplePlatformController : MonoBehaviour {
 
@@ -11,6 +12,8 @@ public class SimplePlatformController : MonoBehaviour {
     public float jumpForce = 1000f;
     public Transform groundCheck;
     public int hp = 100;
+    public Text time;
+    private float playedTime = 0.0f;
 
 
     private bool grounded = false;
@@ -23,6 +26,9 @@ public class SimplePlatformController : MonoBehaviour {
     {
         anim = GetComponent<Animator>();
         rb2d = GetComponent<Rigidbody2D>();
+        setTimeText();
+
+
     }
 
     // Update is called once per frame
@@ -33,6 +39,7 @@ public class SimplePlatformController : MonoBehaviour {
         {
             jump = true;
         }
+        setTimeText();
     }
 
     void FixedUpdate()
@@ -59,7 +66,10 @@ public class SimplePlatformController : MonoBehaviour {
             jump = false;
         }
     }
-
+    void setTimeText() {
+        playedTime += Time.deltaTime;
+        time.text = "Time : " + playedTime.ToString("F2");
+    }
     void Flip()
     {
         facingRight = !facingRight;
