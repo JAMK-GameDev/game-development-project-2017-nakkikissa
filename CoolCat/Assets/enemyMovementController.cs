@@ -10,7 +10,7 @@ public class enemyMovementController : MonoBehaviour
     Transform myTrans;
     float myWidth;
     bool facing = false;
-
+    bool noFloor = false;
     void Start()
     {
         myTrans = this.transform;
@@ -20,9 +20,6 @@ public class enemyMovementController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
 
     {
-
-
-
         if (collision.gameObject.tag == "Player")
         {
             if (facing == false)
@@ -51,11 +48,15 @@ public class enemyMovementController : MonoBehaviour
         bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos + myTrans.right.ToVector2() * .07f, enemyMask);
 
         //if theres no ground or if blocked, turn around 
-        if (!isGrounded || isBlocked)
+        if ((!isGrounded && noFloor == false) || isBlocked)
         {
+            
             Vector3 currRot = myTrans.eulerAngles;
             currRot.y += 180;
             myTrans.eulerAngles = currRot;
+            if (!isGrounded) {
+                noFloor = true;
+            }
         }
         if (facing == true)
         {
