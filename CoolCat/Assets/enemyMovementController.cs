@@ -46,6 +46,10 @@ public class enemyMovementController : MonoBehaviour
             Vector3 currRot = myTrans.eulerAngles;
             currRot.y += 180;
             myTrans.eulerAngles = currRot;
+            if (!isGrounded)
+            {
+                noFloor = true;
+            }
             switch (facingLeft)
             {
                 case 0:
@@ -55,13 +59,9 @@ public class enemyMovementController : MonoBehaviour
                     facingLeft = 0;
                     return;
             }
-            if (!isGrounded) {
-                noFloor = true;
-            }
+           
             
         }
-     
-        Debug.Log("facing :" +facingLeft);
         //Always move forward
         Vector2 myVel = myBody.velocity;
         myVel.x = myTrans.right.x * speed;
