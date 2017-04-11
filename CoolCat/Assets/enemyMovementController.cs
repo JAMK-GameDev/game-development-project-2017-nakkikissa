@@ -9,32 +9,24 @@ public class enemyMovementController : MonoBehaviour
     Rigidbody2D myBody;
     Transform myTrans;
     float myWidth;
-    bool facing = false;
+    int facingLeft = 0;
     bool noFloor = false;
+    GameObject hero; 
+    GameObject enemy; 
     void Start()
     {
         myTrans = this.transform;
         myBody = this.GetComponent<Rigidbody2D>();
         myWidth = this.GetComponent<BoxCollider2D>().bounds.extents.x;
+        hero =  GameObject.Find("hero");
+        enemy  = GameObject.Find("enemy1");
     }
     private void OnTriggerEnter2D(Collider2D collision)
 
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (facing == false)
-            {
-                Vector3 currRot = myTrans.eulerAngles;
-                currRot.y += 180;
-                myTrans.eulerAngles = currRot;
-                speed = 0;
-
-            }
-            else if (facing == true)
-            {
-                speed = 0;
-            }
-
+            enemyFlip();
         }
     }
 
@@ -50,25 +42,55 @@ public class enemyMovementController : MonoBehaviour
         //if theres no ground or if blocked, turn around 
         if ((!isGrounded && noFloor == false) || isBlocked)
         {
-            
+ 
             Vector3 currRot = myTrans.eulerAngles;
             currRot.y += 180;
             myTrans.eulerAngles = currRot;
+            switch (facingLeft)
+            {
+                case 0:
+                    facingLeft = 1;
+                    return;
+                case 1:
+                    facingLeft = 0;
+                    return;
+            }
             if (!isGrounded) {
                 noFloor = true;
             }
+            
         }
-        if (facing == true)
-        {
-            facing = false;
-        }
-        else if (facing == false)
-        {
-            facing = true;
-        }
+     
+        Debug.Log("facing :" +facingLeft);
         //Always move forward
         Vector2 myVel = myBody.velocity;
         myVel.x = myTrans.right.x * speed;
         myBody.velocity = myVel;
+    }
+    void enemyFlip() {
+        if (hero.transform.position.x < enemy.transform.position.x && facingLeft == 1)
+        {
+            speed = 0;
+        }
+        else if (hero.transform.position.x < enemy.transform.position.x && facingLeft == 0)
+        {
+            Vector3 currRot = myTrans.eulerAngles;
+            currRot.y += 180;
+            myTrans.eulerAngles = currRot;
+            speed = 0;
+            facingLeft = 1;
+        }
+        else if (hero.transform.position.x > enemy.transform.position.x && facingLeft == 0)
+        {
+            speed = 0;
+        }
+        else if (hero.transform.position.x > enemy.transform.position.x && facingLeft == 1)
+        {
+            Vector3 currRot = myTrans.eulerAngles;
+            currRot.y += 180;
+            myTrans.eulerAngles = currRot;
+            facingLeft = 0;
+            speed = 0;
+        }
     }
 }

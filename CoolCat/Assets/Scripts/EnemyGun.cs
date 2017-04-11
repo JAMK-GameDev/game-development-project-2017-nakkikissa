@@ -11,11 +11,11 @@ public class EnemyGun : MonoBehaviour {
     }
 	
 	void Update () {
-        if (Time.time > nextFire)
+     /*   if (Time.time > nextFire)
         {     
             Invoke("FireEnemyBullet", 1f);
             nextFire = Time.time + fireRate;
-        }
+        }*/
     }
 
 
