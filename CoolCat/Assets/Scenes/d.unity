@@ -1218,7 +1218,7 @@ GameObject:
   - component: {fileID: 1456531533}
   - component: {fileID: 1456531532}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: SuperJumpPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1232,7 +1232,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1456531531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f5c0c4ee0fa5bd448f5b62478e5ff8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c6ef5b292dc9e148896e829ef9fda8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1456531533
@@ -1291,7 +1291,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1456531531}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.63, y: 0.69, z: 1.6015625}
+  m_LocalPosition: {x: 13.29, y: 10.19, z: 1.6015625}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
