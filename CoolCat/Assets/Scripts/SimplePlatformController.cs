@@ -5,17 +5,18 @@ using UnityEngine.UI;
 
 public class SimplePlatformController : MonoBehaviour {
 
-    private bool facingRight = true;
-    private bool jump = false;
+    
     public float moveForce = 365f;
     public float maxSpeed = 10f;
-    public float jumpForce = 1000f;
+    public float jumpForce = 1000.0f;
     public Transform groundCheck;
     public int hp = 100;
     public Text time;
     private float playedTime = 0.0f;
 
 
+    private bool facingRight = true;
+    private bool jump = false;
     private bool grounded = false;
     private Animator anim;
     private Rigidbody2D rb2d;
@@ -85,5 +86,7 @@ public class SimplePlatformController : MonoBehaviour {
             hp = hp - 5;
         }
     }
+
+  
 
 }
