@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58653688276652926}
   - component: {fileID: 114151453148190838}
   - component: {fileID: 114370437404964428}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyBullet
   m_TagString: ShootedEnemyBullet
   m_Icon: {fileID: 0}
@@ -74,6 +74,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33095240005457508
 MeshFilter:
@@ -93,6 +94,7 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 1, y: 1}
   serializedVersion: 2
   m_Radius: 0.5
