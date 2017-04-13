@@ -34,9 +34,9 @@ public class enemyMovementController : MonoBehaviour
     {
         //Check if there is ground in front of us before moving forward
         Vector2 lineCastPos = myTrans.position + myTrans.right * myWidth;
-        //Debug.DrawLine(lineCastPos, lineCastPos - Vector2.up, Color.black);
+       // Debug.DrawLine(lineCastPos, lineCastPos - Vector2.up, Color.black);
         bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos - Vector2.up, enemyMask);
-        //  Debug.DrawLine(lineCastPos, lineCastPos + myTrans.right.ToVector2() * .07f, Color.black);
+       //   Debug.DrawLine(lineCastPos, lineCastPos + myTrans.right.ToVector2() * .07f, Color.black);
         bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos + myTrans.right.ToVector2() * .07f, enemyMask);
 
         //if theres no ground or if blocked, turn around 
