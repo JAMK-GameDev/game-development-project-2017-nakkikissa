@@ -1,10 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class PickupPowerup : MonoBehaviour
-{
+public class EnemySlowMotion : MonoBehaviour {
+
     private bool superJump = false;
-    GameObject enemyGameObject;
 
     // Use this for initialization
     void Start()
@@ -40,12 +40,10 @@ public class PickupPowerup : MonoBehaviour
 
     IEnumerator Timer()
     {
-        GameObject player = GameObject.Find("hero");
-        SimplePlatformController playerScript = player.GetComponent<SimplePlatformController>();
-        playerScript.maxSpeed = 40f;
+        GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
+        enemyMovementController enemyScript = enemy.GetComponent<enemyMovementController>();
+        enemyScript.speed = 0f;
         yield return new WaitForSeconds(8);
-        playerScript.maxSpeed = 10f;
+        enemyScript.speed = 2.0f;
     }
-
 }
-
