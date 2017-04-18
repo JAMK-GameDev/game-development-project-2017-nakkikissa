@@ -69,6 +69,10 @@ public class SimplePlatformController : MonoBehaviour {
             rb2d.AddForce(new Vector2(0f, jumpForce));
             jump = false;
         }
+        if(hp == 0)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
     void setTimeText() {
         playedTime += Time.deltaTime;
