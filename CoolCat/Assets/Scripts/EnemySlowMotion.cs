@@ -5,11 +5,12 @@ using UnityEngine;
 public class EnemySlowMotion : MonoBehaviour {
 
     private bool freezing = false;
+    private AudioSource pickupSound;
 
     // Use this for initialization
     void Start()
     {
-
+        pickupSound = GameObject.Find("Powerup_1 (1)").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,7 +32,8 @@ public class EnemySlowMotion : MonoBehaviour {
                 freezing = false;
 
             }
-
+            pickupSound.Play();
+            Debug.Log("pitäis soida");
             Destroy(gameObject);
         }
 

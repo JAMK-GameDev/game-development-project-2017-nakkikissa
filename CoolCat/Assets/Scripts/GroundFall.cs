@@ -5,6 +5,7 @@ public class GroundFall : MonoBehaviour
 {
 
     public float fallDelay = 0.1f;
+    public AudioSource fallSound;
 
 
     private Rigidbody2D rb2d;
@@ -19,6 +20,7 @@ public class GroundFall : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Invoke("Fall", fallDelay);
+            fallSound.Play();
         }
     }
 

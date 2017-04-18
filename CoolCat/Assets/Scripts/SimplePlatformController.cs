@@ -13,6 +13,8 @@ public class SimplePlatformController : MonoBehaviour {
     public int hp = 100;
     public Text time;
     private float playedTime = 0.0f;
+    public AudioSource jumpSound;
+    public AudioSource damageSound;
 
 
     private bool facingRight = true;
@@ -39,6 +41,7 @@ public class SimplePlatformController : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && grounded)
         {
             jump = true;
+            jumpSound.Play();
         }
         setTimeText();
     }
@@ -84,6 +87,7 @@ public class SimplePlatformController : MonoBehaviour {
         if (collision.gameObject.tag == "ShootedEnemyBullet")
         {
             hp = hp - 5;
+            damageSound.Play();
         }
     }
 

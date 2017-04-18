@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyGun : MonoBehaviour {
     public GameObject EnemyBullet; // enemybullet prefab
+    public AudioSource enemyGun;   // enemybullet audiosource
     public float fireRate = 1F;
     public float nextFire = 0.0F;
     GameObject enemy;
@@ -37,6 +38,8 @@ public class EnemyGun : MonoBehaviour {
             Vector2 direction = mouse.transform.position - bullet.transform.position;
             //set the bullet's direction
             bullet.GetComponent<EnemyBulletController>().SetDirection(direction);
+            //enemy gunshot audio
+            enemyGun.Play();
         }
     }
 }
