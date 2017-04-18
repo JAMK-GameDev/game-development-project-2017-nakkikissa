@@ -45,7 +45,7 @@ public class SuperJump : MonoBehaviour {
         GameObject player = GameObject.Find("hero");
         SimplePlatformController playerScript = player.GetComponent<SimplePlatformController>();
         playerScript.jumpForce = 2000.0f;
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(6);
         playerScript.jumpForce = 1000.0f;
     }
     }
