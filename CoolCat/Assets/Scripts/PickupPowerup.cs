@@ -5,11 +5,12 @@ public class PickupPowerup : MonoBehaviour
 {
     private bool superJump = false;
     GameObject enemyGameObject;
+    private AudioSource pickupSound;
 
     // Use this for initialization
     void Start()
     {
-
+        pickupSound = GameObject.Find("Powerup_3 (1)").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
