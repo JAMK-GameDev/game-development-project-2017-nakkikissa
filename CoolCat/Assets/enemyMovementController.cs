@@ -10,7 +10,7 @@ public class enemyMovementController : MonoBehaviour
     Transform myTrans;
     float myWidth;
     int facingLeft = 0;
-    bool noFloor = false;
+   // bool noFloor = false;
     GameObject hero; 
     GameObject[] enemiess; 
     void Start()
@@ -34,22 +34,23 @@ public class enemyMovementController : MonoBehaviour
     {
         //Check if there is ground in front of us before moving forward
         Vector2 lineCastPos = myTrans.position + myTrans.right * myWidth;
-       // Debug.DrawLine(lineCastPos, lineCastPos - Vector2.up, Color.black);
+       Debug.DrawLine(lineCastPos, lineCastPos - Vector2.up, Color.black);
         bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos - Vector2.up, enemyMask);
        //   Debug.DrawLine(lineCastPos, lineCastPos + myTrans.right.ToVector2() * .07f, Color.black);
         bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos + myTrans.right.ToVector2() * .07f, enemyMask);
 
         //if theres no ground or if blocked, turn around 
-        if ((!isGrounded && noFloor == false) || isBlocked)
+        if ( !isGrounded /*(!isGrounded && noFloor == false)*/ || isBlocked)
         {
  
             Vector3 currRot = myTrans.eulerAngles;
             currRot.y += 180;
             myTrans.eulerAngles = currRot;
-            if (!isGrounded)
+            Debug.Log("current " + currRot);
+        /*    if (!isGrounded)
             {
                 noFloor = true;
-            }
+            }*/
             switch (facingLeft)
             {
                 case 0:
