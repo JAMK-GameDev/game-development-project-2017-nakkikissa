@@ -6,15 +6,22 @@ public class EnemyGun : MonoBehaviour {
     public GameObject EnemyBullet; // enemybullet prefab
     public float fireRate = 1F;
     public float nextFire = 0.0F;
+    GameObject enemy;
     void Start () {
-       
+        enemy = GameObject.Find("enemy1");
     }
 	
 	void Update () {
-       if (Time.time > nextFire)
-        {     
-            Invoke("FireEnemyBullet", 1f);
-            nextFire = Time.time + fireRate;
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+        if ((enemy.transform.position.x > min.x) && (enemy.transform.position.x < max.x) &&
+              (enemy.transform.position.y > min.y) && (enemy.transform.position.y < max.y))
+        {
+            if (Time.time > nextFire)
+            {
+                Invoke("FireEnemyBullet", 1f);
+                nextFire = Time.time + fireRate;
+            }
         }
     }
 
