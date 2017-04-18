@@ -44,7 +44,7 @@ public class PickupPowerup : MonoBehaviour
 
     IEnumerator Timer()
     {
-        GameObject player = GameObject.Find("hero 1");
+        GameObject player = GameObject.Find("hero");
         SimplePlatformController playerScript = player.GetComponent<SimplePlatformController>();
         playerScript.maxSpeed = 40f;
         yield return new WaitForSeconds(8);
