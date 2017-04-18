@@ -15,6 +15,7 @@ public class SimplePlatformController : MonoBehaviour {
     private float playedTime = 0.0f;
     public AudioSource jumpSound;
     public AudioSource damageSound;
+    public static float normalTime = 1f;
 
 
     private bool facingRight = true;
@@ -71,6 +72,12 @@ public class SimplePlatformController : MonoBehaviour {
         }
         if(hp <= 0)
         {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+
+        if (Input.GetKeyDown("r"))
+        {
+            Time.timeScale = normalTime;
             Application.LoadLevel(Application.loadedLevel);
         }
     }
