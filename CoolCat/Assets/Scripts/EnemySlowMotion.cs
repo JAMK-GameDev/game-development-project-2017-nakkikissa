@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySlowMotion : MonoBehaviour {
 
-    private bool superJump = false;
+    private bool freezing = false;
 
     // Use this for initialization
     void Start()
@@ -24,11 +24,11 @@ public class EnemySlowMotion : MonoBehaviour {
         if (other.gameObject.CompareTag("Player"))
         {
 
-            superJump = true;
-            if (superJump)
+            freezing = true;
+            if (freezing)
             {
                 other.GetComponent<SimplePlatformController>().StartCoroutine(Timer());
-                superJump = false;
+                freezing = false;
 
             }
 
@@ -42,8 +42,12 @@ public class EnemySlowMotion : MonoBehaviour {
     {
         GameObject enemy = GameObject.FindGameObjectWithTag("Enemy");
         enemyMovementController enemyScript = enemy.GetComponent<enemyMovementController>();
+        GameObject enemyGun = GameObject.FindGameObjectWithTag("Gun");
+        EnemyGun enemyGunScript = enemyGun.GetComponent<EnemyGun>();
         enemyScript.speed = 0f;
+        enemyGunScript.nextFire = 200f;
         yield return new WaitForSeconds(8);
         enemyScript.speed = 2.0f;
+        enemyGunScript.nextFire = Time.time + enemyGunScript.fireRate;
     }
 }

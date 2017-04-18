@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyGun : MonoBehaviour {
     public GameObject EnemyBullet; // enemybullet prefab
     public float fireRate = 1F;
-    private float nextFire = 0.0F;
+    public float nextFire = 0.0F;
     void Start () {
        
     }

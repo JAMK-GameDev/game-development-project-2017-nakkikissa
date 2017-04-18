@@ -1230,6 +1230,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114655570510463516, guid: 4c5736ea0764d49c3a6adc2250d33f0f,
+        type: 2}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4c5736ea0764d49c3a6adc2250d33f0f, type: 2}
   m_IsPrefabParent: 0
@@ -2187,7 +2192,7 @@ GameObject:
   - component: {fileID: 1677303694}
   - component: {fileID: 1677303693}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: EnemyFreezing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyBulletController : MonoBehaviour {
 
-    float speed; 
+    public float speed; 
     Vector2 _direction; // The direction of the bullet
     bool isReady = false; //to know when the bullet direction is set
 
