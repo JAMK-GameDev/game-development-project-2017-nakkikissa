@@ -34,6 +34,9 @@ public class PickupPowerup : MonoBehaviour
             }
 
             Destroy(gameObject);
+            Debug.Log("pitäis soida");
+            pickupSound.Play();
+
         }
 
     }
@@ -41,7 +44,7 @@ public class PickupPowerup : MonoBehaviour
 
     IEnumerator Timer()
     {
-        GameObject player = GameObject.Find("hero");
+        GameObject player = GameObject.Find("hero 1");
         SimplePlatformController playerScript = player.GetComponent<SimplePlatformController>();
         playerScript.maxSpeed = 40f;
         yield return new WaitForSeconds(8);
