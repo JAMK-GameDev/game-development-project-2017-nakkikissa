@@ -30,9 +30,10 @@ public class SuperJump : MonoBehaviour {
                 superJump = false;
 
             }
+            Destroy(gameObject);
             Debug.Log("pitäis soida");
             pickupSound.Play();
-            Destroy(gameObject);
+           
         }
             
         }

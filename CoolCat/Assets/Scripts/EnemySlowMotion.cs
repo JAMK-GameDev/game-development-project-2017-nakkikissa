@@ -32,9 +32,10 @@ public class EnemySlowMotion : MonoBehaviour {
                 freezing = false;
 
             }
+            Destroy(gameObject);
             pickupSound.Play();
             Debug.Log("pitäis soida");
-            Destroy(gameObject);
+            
         }
 
     }

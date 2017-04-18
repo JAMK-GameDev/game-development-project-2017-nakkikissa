@@ -69,7 +69,7 @@ public class SimplePlatformController : MonoBehaviour {
             rb2d.AddForce(new Vector2(0f, jumpForce));
             jump = false;
         }
-        if(hp == 0)
+        if(hp <= 0)
         {
             Application.LoadLevel(Application.loadedLevel);
         }
@@ -91,6 +91,11 @@ public class SimplePlatformController : MonoBehaviour {
         if (collision.gameObject.tag == "ShootedEnemyBullet")
         {
             hp = hp - 5;
+            damageSound.Play();
+        }
+        if (collision.gameObject.tag == "Gun")
+        {
+            hp = hp - 20;
             damageSound.Play();
         }
     }
