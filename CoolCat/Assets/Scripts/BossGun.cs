@@ -6,17 +6,24 @@ public class BossGun : MonoBehaviour {
     public GameObject BossBullet; // enemybullet prefab
     public float fireRate = 0.3F;
     private float nextFire = 0.0F;
+    GameObject boss;
     void Start()
     {
-
+        boss = GameObject.FindGameObjectWithTag("Boss");
     }
 
     void Update()
     {
-        if (Time.time > nextFire)
+        Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+        Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+        if ((boss.transform.position.x > min.x) && (boss.transform.position.x < max.x) &&
+                  (boss.transform.position.y > min.y) && (boss.transform.position.y < max.y))
         {
-            Invoke("FireBossBullet", 1f);
-            nextFire = Time.time + fireRate;
+            if (Time.time > nextFire)
+            {
+                Invoke("FireBossBullet", 1f);
+                nextFire = Time.time + fireRate;
+            }
         }
     }
 
