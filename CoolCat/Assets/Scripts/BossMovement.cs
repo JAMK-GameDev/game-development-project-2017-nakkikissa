@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class BossMovement : MonoBehaviour
 {
-    public float speed;
+    public float speed = 0.1f;
     Rigidbody2D myBody;
     Transform myTrans;
     int facingLeft = 1;
     GameObject hero;
     GameObject boss;
     float newposition;
+    bool test = true;
 
 
     void Start()
@@ -19,31 +20,36 @@ public class BossMovement : MonoBehaviour
         myBody = this.GetComponent<Rigidbody2D>();
         hero = GameObject.FindGameObjectWithTag("Player");
         boss = GameObject.FindGameObjectWithTag("Boss");
-        newposition = boss.transform.position.y - 2;
+        newposition = boss.transform.position.y - 0.1f;
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
+        //Moving up and back down
         if (boss.transform.position.y < newposition)
         {
-                Vector2 myVel = myBody.velocity;
-                myVel.y = myTrans.position.y * speed;
-                myBody.velocity = myVel;
-                if (boss.transform.position.y > newposition)
-                {
-                    newposition = boss.transform.position.y - 2;
-                  }           
+            if (test == false)
+            {
+                newposition = newposition + 3;
+            }
+            test = true;
+            Vector2 myVel = myBody.velocity;
+            myVel.y = myTrans.position.y * speed;
+            myBody.velocity = myVel;
         }
+
         else if (boss.transform.position.y > newposition)
-        {         
-                Vector2 myVel = myBody.velocity;
-                myVel.y = -myTrans.position.y * speed;
-                myBody.velocity = myVel;
-                if (boss.transform.position.y < newposition)
-                {
-                    newposition = boss.transform.position.y + 2;
-                }          
+        {
+            if (test == true)
+            {
+                newposition = newposition - 3;
+            }
+            test = false;
+            Vector2 myVel = myBody.velocity;
+            myVel.y = -myTrans.position.y * speed;
+            myBody.velocity = myVel;
+
         }
 
     }
