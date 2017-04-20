@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossGun : MonoBehaviour {
     public GameObject BossBullet; // enemybullet prefab
+    public AudioSource gunSound; // enemybullet audiosource
     public float fireRate = 0.3F;
     private float nextFire = 0.0F;
     GameObject boss;
@@ -41,6 +42,8 @@ public class BossGun : MonoBehaviour {
             Vector2 direction = mouse.transform.position - bullet.transform.position;
             //set the bullet's direction
             bullet.GetComponent<BossBulletController>().SetDirection(direction);
+            //bullet's sound effect
+            gunSound.Play();
         }
     }
 }

@@ -9,6 +9,8 @@ public class Weapon : MonoBehaviour
 
     public Transform bulletTrailPrefab;
 
+    public AudioSource gunSound;
+
     Transform firePoint;
 
     // Use this for initialization
@@ -30,6 +32,7 @@ public class Weapon : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
+            gunSound.Play();
         }
     }
 
