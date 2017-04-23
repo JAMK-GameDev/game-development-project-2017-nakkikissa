@@ -95,14 +95,18 @@ public class SimplePlatformController : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        GameObject health = GameObject.FindGameObjectWithTag("Health");
+        Slider hpbar = health.GetComponent<Slider>();
         if (collision.gameObject.tag == "ShootedEnemyBullet")
         {
             hp = hp - 5;
+            hpbar.value = hpbar.value - 5;
             damageSound.Play();
         }
         if (collision.gameObject.tag == "Gun")
         {
             hp = hp - 20;
+            hpbar.value = hpbar.value - 20;
             damageSound.Play();
         }
     }
