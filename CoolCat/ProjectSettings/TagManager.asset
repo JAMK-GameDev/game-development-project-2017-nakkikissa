@@ -17,6 +17,7 @@ TagManager:
   - Gun
   - Boss
   - Health
+  - ShootedBossBullet
   layers:
   - Default
   - TransparentFX
