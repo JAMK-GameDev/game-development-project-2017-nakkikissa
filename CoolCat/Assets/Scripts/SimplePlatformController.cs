@@ -12,7 +12,7 @@ public class SimplePlatformController : MonoBehaviour {
     public Transform groundCheck;
     public int hp = 100;
     public Text time;
-    static float playedTime = 0.0f;
+    public static float playedTime = 0.0f;
     public AudioSource jumpSound;
     public AudioSource damageSound;
     public static float normalTime = 1f;
@@ -111,6 +111,9 @@ public class SimplePlatformController : MonoBehaviour {
         }
     }
 
-  
+  public string getPlayedTime()
+    {
+        return playedTime.ToString();
+    }
 
 }

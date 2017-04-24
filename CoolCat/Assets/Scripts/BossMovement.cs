@@ -12,6 +12,7 @@ public class BossMovement : MonoBehaviour
     GameObject boss;
     float newposition;
     bool test = true;
+    public int hp = 100;
 
 
     void Start()
