@@ -36,6 +36,7 @@ public class BossGun : MonoBehaviour {
         {
             //instantiate an enemy bullet
             GameObject bullet = (GameObject)Instantiate(BossBullet);
+            bullet.tag = "ShootedBossBullet";
             //set the bullet's initial position
             bullet.transform.position = transform.position;
             //compute the bullet's direction towards the player

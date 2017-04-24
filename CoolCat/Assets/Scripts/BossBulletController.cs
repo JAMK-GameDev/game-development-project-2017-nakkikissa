@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossBulletController : MonoBehaviour
 {
     float speed;
     Vector2 _direction; // The direction of the bullet
     bool isReady = false; //to know when the bullet direction is set
+   // public AudioSource damageSound;
 
     //set default values in awake function
     void Awake()
@@ -29,7 +31,15 @@ public class BossBulletController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            /*GameObject health = GameObject.FindGameObjectWithTag("Health");
+            Slider hpbar = health.GetComponent<Slider>();
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            SimplePlatformController playerScript = health.GetComponent<SimplePlatformController>();*/
             Destroy(gameObject);
+           /* playerScript.hp = playerScript.hp - 20;
+            hpbar.value = hpbar.value - 20;*/
+            //damageSound.Play();
+
         }
     }
     // Update is called once per frame

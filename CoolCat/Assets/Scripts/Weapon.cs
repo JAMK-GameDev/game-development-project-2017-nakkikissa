@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Weapon : MonoBehaviour
 {
     public Text End;
+    public Text time;
     public LayerMask whatToHit;
 
     public Transform bulletTrailPrefab;
@@ -57,13 +58,11 @@ public class Weapon : MonoBehaviour
 
             GameObject boss = GameObject.FindGameObjectWithTag("Boss");
             BossMovement bossScript = boss.GetComponent<BossMovement>();
-            GameObject p = GameObject.FindGameObjectWithTag("Player");
-            SimplePlatformController ps = boss.GetComponent<SimplePlatformController>();
             bossScript.hp = bossScript.hp - 20;
             if(bossScript.hp <= 0)
             {
                 Destroy(hit.collider.gameObject);
-                End.text = ps.getPlayedTime();
+                End.text = "Your time was: " + SimplePlatformController.playedTime;
             }
             
             

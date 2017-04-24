@@ -109,6 +109,12 @@ public class SimplePlatformController : MonoBehaviour {
             hpbar.value = hpbar.value - 20;
             damageSound.Play();
         }
+        if (collision.gameObject.tag == "ShootedBossBullet")
+        {
+            hp = hp - 15;
+            hpbar.value = hpbar.value - 15;
+            damageSound.Play();
+        }
     }
 
   public string getPlayedTime()

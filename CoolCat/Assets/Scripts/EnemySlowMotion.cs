@@ -6,6 +6,7 @@ public class EnemySlowMotion : MonoBehaviour {
 
     private bool freezing = false;
     private AudioSource pickupSound;
+    GameObject[] enemies;
 
     // Use this for initialization
     void Start()
@@ -48,9 +49,13 @@ public class EnemySlowMotion : MonoBehaviour {
         GameObject enemyGun = GameObject.FindGameObjectWithTag("Gun");
         EnemyGun enemyGunScript = enemyGun.GetComponent<EnemyGun>();
         enemyScript.speed = 0f;
+     
         enemyGunScript.nextFire = 200f;
+
         yield return new WaitForSeconds(8);
         enemyScript.speed = 2.0f;
+  
         enemyGunScript.nextFire = Time.time + enemyGunScript.fireRate;
+
     }
 }
